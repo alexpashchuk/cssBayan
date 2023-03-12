@@ -58,6 +58,7 @@ label {
 .bayan__img {
     height: 0;
     transition: all 0.5s ease-in-out;
+    width: 25vw;
 }
 
 input:checked + label {
@@ -75,24 +76,33 @@ input:checked + label .bayan__img {
     height: 2rem;
     width: 2rem;
     opacity: 1;
-    transition: 0.5s all;
+    transition: 0.5s ease-in-out;
+    transition-property: opacity, transform;
 }
 
 input:checked + label .plus {
     transform: rotate(45deg);
 }
 
-input:checked + label:active {
+.accordion label:active {
     filter: grayscale(50%);
 }
 
-input:checked + label:active {
+.accordion label:active p {
     color: cadetblue;
+}
+
+.accordion label:active .plus {
+    filter: invert(63%) sepia(10%) saturate(1374%) hue-rotate(133deg) brightness(89%) contrast(88%);
 }
 
 @media (hover: hover) {
     .accordion:hover label {
         color: black;
+    }
+
+    .plus {
+        opacity: 0;
     }
 
     .accordion:hover .plus {
@@ -101,10 +111,6 @@ input:checked + label:active {
 
     label:hover .bayan__img {
         height: 25vw;
-    }
-
-    .plus {
-        opacity: 0;
     }
 
     label:hover .plus {
@@ -138,6 +144,10 @@ input:checked + label:active {
     label:hover .bayan__img {
         height: 50vw;
     }
+
+    .bayan__img {
+        width: 50vw;
+    }
 }
 
 @media (max-width: 480px) {
@@ -159,6 +169,7 @@ input:checked + label:active {
     }
 
     .accordion__item {
+        border-top: 0.05rem solid gray;
         padding: 0.5rem;
     }
 }
